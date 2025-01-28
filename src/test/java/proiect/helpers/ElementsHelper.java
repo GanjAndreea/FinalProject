@@ -4,6 +4,8 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
@@ -51,5 +53,10 @@ public class ElementsHelper {
     public void selectElementUsingKeys (WebElement element, String value, Keys key){
         fillElement(element,value);
         element.sendKeys(key);
+    }
+
+    public void waitForElement(WebElement element){
+        WebDriverWait wait = new WebDriverWait(10);
+        wait.until(ExpectedConditions.visibilityOf(element));
     }
 }

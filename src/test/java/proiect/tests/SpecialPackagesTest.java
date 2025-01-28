@@ -11,18 +11,16 @@ import proiect.pages.HomePage;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SpecialPackagesTest {
+import static proiect.constants.MenuKeys.PACKAGE_MENU;
+
+public class SpecialPackagesTest extends BaseTest {
 
     //Facem o metoda de test care merge de pe pagina principala pana pe pagina Pachete Speciale
 
-    public WebDriver driver;     //Acest driver ofera acces pe browser
-
     @Test
     public void navigateFromHomePageToSpecialPackagesPage() {
-        openBrowser();
-        HomePage homePage = new HomePage(driver);  //obiect care are acces la toate metodele din Cat Page
         homePage.isPageLoaded();
-        homePage.goToDesireMenu("PACHETE SPECIALE");
+        homePage.goToDesireMenu(PACKAGE_MENU);
 //        clickOnOffersMenu();
 //        clickOnOffersMenu();
 //        scrollDown();
@@ -41,14 +39,6 @@ public class SpecialPackagesTest {
 //        selectDeliveryMethod("GRATUIT: ridicare din Cugir, strada 21 Decembrie 1989, Nr.58");
 //        clickOnCompleteOrder();
 //        fillPersonalData();
-//        quitBrowser();
-    }
-
-    //Facem o metoda care sa deschida browser
-    public void openBrowser() {
-        driver = new ChromeDriver();   //deschide Chrome
-        driver.get("https://www.animarket.ro/");
-        driver.manage().window().maximize();
     }
 
     //Facem o metoda care selecteaza pachet zi de nastere
@@ -232,11 +222,6 @@ public class SpecialPackagesTest {
     public void clickOnPlaceOrder(){
         WebElement placeOrderButton = driver.findElement(By.id("place_order"));
         placeOrderButton.click();
-    }
-
-    //Facem o metoda care sa inchida Browser
-    public void quitBrowser(){
-        driver.quit();
     }
 
     public void scrollDown() {
